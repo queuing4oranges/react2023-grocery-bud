@@ -1,22 +1,28 @@
 import React, { useState }  from 'react'
 
-export default function SingleItem({ name, id, completed, removeItem }) {
+export default function SingleItem({ item, name, id, completed, removeItem, updatedComplete }) {
 
-const [isChecked, setIsChecked] = useState(completed)
+// const [isChecked, setIsChecked] = useState(completed)
    
-    const dynamicStyle = {
-        textDecoration: isChecked ? "line-through" : "none"
-    }
+    console.log(completed)
+    console.log(id)
+
+    // const dynamicStyle = {
+    //     textDecoration: item.completed ? "line-through" : "none"
+    // }
 
     return (
         <div>
-            <p  style={dynamicStyle}>{name}</p>
+            {/* <p  style={dynamicStyle}>{item.name}</p> */}
+            <p  style={{
+                textDecoration: item.completed && 'line-through'
+            }}>{item.name}</p>
             <input 
             type="checkbox" 
-            checked={isChecked} 
-            onChange={()=>setIsChecked(!isChecked)}
+            checked={item.completed} 
+            onChange={()=>updatedComplete(item.id)}
             />
-            <button type='button' onClick={()=>removeItem(id)}>Remove Item</button>
+            <button type='button' onClick={()=>removeItem(item.id)}>Remove Item</button>
         </div>
     )
 }
