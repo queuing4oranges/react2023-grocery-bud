@@ -55,9 +55,9 @@ const updatedComplete = (itemID) => {
 
 
   return (
-  <div>
+  <div className="grocery-container">
     <ToastContainer position="top-center" />
-    <h2>Grocery Bud</h2>
+    <h2 className="title">Grocery Bud</h2>
     <Form setItems={setItems} items={items}/>
     <Items items={items} removeItem={removeItem} updatedComplete={updatedComplete}/> 
   </div>

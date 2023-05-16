@@ -6,17 +6,14 @@ export default function Items({ items, removeItem, updatedComplete }) {
   return (
     <div>
         {items.length !== 0 ? 
-        <div> 
+        <div className='items-container'> 
         {items.map((item) =>(
-        <div key={item.id}>
+        <section key={item.id}>
             <SingleItem 
-            // name={item.name} 
-            // id={item.id} 
-            // completed={item.completed} 
             item={item}
             removeItem={removeItem}
             updatedComplete={updatedComplete} />
-        </div>
+        </section>
         ))}
         </div>
         : false
